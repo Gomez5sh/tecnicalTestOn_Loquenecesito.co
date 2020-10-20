@@ -1,46 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
-import People from "./People";
 import { ALL_CHARACTERS } from "../../data/data";
-import { Details } from "./Details";
+import { Spin, Alert } from "antd";
+import { People } from "./People";
 
 export const CharacterList = () => {
-  const { loading, error, data } = useQuery(ALL_CHARACTERS);
-  const [personDetails, setPersonaDetails] = useState(null);
+  // GPL
+  const { data, loading, error } = useQuery(ALL_CHARACTERS);
 
-  function handleCallback(Person) {
-    setPersonaDetails(Person);
+  if (loading) {
+    return (
+      <div>
+        <Spin />
+      </div>
+    );
   }
+  if (error) return <Alert message="Error" type="error" showIcon />;
 
-  if (loading) return <p>LOADING .. :(</p>;
-  if (error) return <p>Error :(</p>;
-
-  function renderCharacteres() {
+  const render = () => {
     return data.allPeople.people.map((character) => {
       return (
         <People
           key={character.id}
           name={character.name}
-          characterId={character.id}
-          clickCallback={handleCallback}
+          year={character.birthYear}
+          gender={character.gender}
+          home={character.homeworld.name}
+          film={character.filmConnection.films.title}
+          direc={character.filmConnection.films.director}
+          prod={character.filmConnection.films.producers}
+          opText={character.filmConnection.films.openingCrawl}
+          relace={character.filmConnection.films.releaseDate}
         />
       );
     });
-  }
-  return (
-    <>
-      {loading ? (
-        <p>LOADING ...</p>
-      ) : (
-        <div className="flex">
-          <div className="w-6/12">
-            <li>{renderCharacteres()}</li>
-          </div>
-          <div className="w-6/12">
-            {personDetails && <Details person={personDetails}></Details>}
-          </div>
-        </div>
-      )}
-    </>
-  );
+  };
+
+  return <>{render()}</>;
 };

@@ -6,10 +6,10 @@ export const HomeApp = ({ name }) => {
   return (
     <>
       <Layout>
-        <div>
-          <h1>Character Screen</h1>
-          <hr></hr>
-          <CharacterList name="character" />
+        <div className="flex container mx-auto py-6">
+          <ul>
+            <CharacterList name="character" />
+          </ul>
         </div>
       </Layout>
     </>

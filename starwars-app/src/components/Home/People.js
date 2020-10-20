@@ -1,22 +1,69 @@
-import { useLazyQuery } from "@apollo/client";
-import { GET_PERSON } from "../../data/data";
-import React from "react";
-import { Card } from "antd";
+import React, { useState } from "react";
+import { Layout, Modal, Card, Button, Row, Col } from "antd";
 
-export default function People({ name, characterId, clickCallback }) {
-  const [getCharacter] = useLazyQuery(GET_PERSON, {
-    variables: { id: characterId },
-    onCompleted({ person }) {
-      clickCallback(person);
-    },
-  });
+export function People({
+  name,
+  year,
+  gender,
+  home,
+  film,
+  direc,
+  prod,
+  opText,
+  relace,
+}) {
+  // Modal
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(true);
+  };
+
+  const closeModal = () => {
+    setModal(false);
+  };
+
+  const action = () => {
+    alert("TThank you :D");
+    closeModal();
+  };
+
   return (
-    <Card
-      size="small"
-      style={{ width: 300, cursor: "pointer" }}
-      onClick={() => getCharacter()}
-    >
-      {name}
-    </Card>
+    <>
+      <Layout>
+        <br></br>
+        <Row>
+          <Col span={24}>
+            <Card title={name} style={{ width: 300 }}>
+              <p>Birth Year: {year}</p>
+              <p>Gender: {gender}</p>
+              <p>Home World: {home}</p>
+              <Button type="primary" block onClick={openModal}>
+                Ditails
+              </Button>
+            </Card>
+            <br></br>
+            <Modal
+              title={name}
+              visible={modal}
+              onCancel={closeModal}
+              onOk={action}
+            >
+              <Layout>
+                <p>Birth Year: {year}</p>
+                <p>Gender: {gender}</p>
+                <p>Home World: {home}</p>
+                <p>Film Conection: {film}</p>
+                <p>Director: {direc}</p>
+                <p>Producers: {prod}</p>
+                <p>Opening text: {opText}</p>
+                <p>Relace Date: {relace}</p>
+              </Layout>
+            </Modal>
+          </Col>
+          <br></br>
+        </Row>
+      </Layout>
+    </>
   );
 }

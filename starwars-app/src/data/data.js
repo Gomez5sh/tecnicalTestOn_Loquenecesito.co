@@ -6,11 +6,25 @@ export const ALL_CHARACTERS = gql`
       people {
         id
         name
+        birthYear
+        gender
+        filmConnection {
+          films {
+            title
+            director
+            producers
+            openingCrawl
+            releaseDate
+          }
+        }
+        homeworld {
+          name
+        }
       }
     }
   }
 `;
-
+/*
 export const GET_PERSON = gql`
   query($id: ID!) {
     person(id: $id) {
@@ -35,3 +49,4 @@ export const GET_PERSON = gql`
     }
   }
 `;
+*/
