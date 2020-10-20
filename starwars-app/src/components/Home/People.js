@@ -24,7 +24,7 @@ export function People({
   };
 
   const action = () => {
-    alert("TThank you :D");
+    alert("Thank you :D");
     closeModal();
   };
 

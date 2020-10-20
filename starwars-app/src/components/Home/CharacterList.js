@@ -26,11 +26,11 @@ export const CharacterList = () => {
           year={character.birthYear}
           gender={character.gender}
           home={character.homeworld.name}
-          film={character.filmConnection.films.title}
-          direc={character.filmConnection.films.director}
-          prod={character.filmConnection.films.producers}
-          opText={character.filmConnection.films.openingCrawl}
-          relace={character.filmConnection.films.releaseDate}
+          film={character.filmConnection.films[0].title}
+          direc={character.filmConnection.films[0].director}
+          prod={character.filmConnection.films[0].producers}
+          opText={character.filmConnection.films[0].openingCrawl}
+          relace={character.filmConnection.films[0].releaseDate}
         />
       );
     });

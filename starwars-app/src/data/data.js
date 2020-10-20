@@ -10,6 +10,7 @@ export const ALL_CHARACTERS = gql`
         gender
         filmConnection {
           films {
+            id
             title
             director
             producers
