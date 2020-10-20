@@ -7,41 +7,42 @@ export const Navbar = () => {
   const { Header } = Layout;
 
   return (
-    <Layout>
-      <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
+    <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
+      <div className="navbar-nav navbar-expand-sm">
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
-          <div className="navbar-collapse">
-            <div className="navbar-nav">
-              <NavLink
-                activeClassName="active"
-                className="nav-item nav-link"
-                exact
-                to="/"
-              >
-                Home
-              </NavLink>
+          <Menu.Item>
+            <NavLink
+              activeClassName="active"
+              className="nav-item nav-link"
+              exact
+              to="/"
+            >
+              Home
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink
+              activeClassName="active"
+              className="nav-item nav-link"
+              exact
+              to="/about"
+            >
+              About
+            </NavLink>
+          </Menu.Item>
 
-              <NavLink
-                activeClassName="active"
-                className="nav-item nav-link"
-                exact
-                to="/about"
-              >
-                About
-              </NavLink>
-
-              <NavLink
-                activeClassName="active"
-                className="nav-item nav-link"
-                exact
-                to="/stack"
-              >
-                Stack
-              </NavLink>
-            </div>
-          </div>
+          <Menu.Item>
+            <NavLink
+              activeClassName="active"
+              className="nav-item nav-link"
+              exact
+              to="/stack"
+            >
+              Stack
+            </NavLink>
+          </Menu.Item>
         </Menu>
-      </Header>
-    </Layout>
+      </div>
+    </Header>
   );
 };

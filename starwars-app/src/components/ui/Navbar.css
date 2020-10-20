@@ -1,0 +1,16 @@
+.navbar-nav{
+    padding: 0%;
+    font-size: 30px;
+    text-align:center;
+
+}
+
+.nav{
+    list-style: none;
+}
+
+.nav-li{
+    display: inline-block;
+    padding: 0px 20px;
+
+}
