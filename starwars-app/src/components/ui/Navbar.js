@@ -7,7 +7,7 @@ export const Navbar = () => {
 
   return (
     <Layout>
-      <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
+      <Header className="header" style={{ zIndex: 1, width: "100%" }}>
         <div className="navbar-nav navbar-expand-sm">
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
             <Menu.Item>
@@ -33,7 +33,6 @@ export const Navbar = () => {
           </Menu>
         </div>
       </Header>
-      <br></br>
     </Layout>
   );
 };
