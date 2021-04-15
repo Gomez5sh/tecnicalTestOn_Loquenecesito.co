@@ -26,11 +26,11 @@ export const CharacterList = () => {
           year={character.birthYear}
           gender={character.gender}
           home={character.homeworld.name}
-          film={character.filmConnection.films[0].title}
-          direc={character.filmConnection.films[0].director}
-          prod={character.filmConnection.films[0].producers}
-          opText={character.filmConnection.films[0].openingCrawl}
-          relace={character.filmConnection.films[0].releaseDate}
+          film={character.filmConnection.films.map((e) => { return ( <ul>{e.title}</ul>)})}
+          direc={character.filmConnection.films.map((e) => { return ( <ul>{e.director}</ul>)})}
+          prod={character.filmConnection.films.map((e) => { return  ( <ul>{e.producers}</ul>)})}
+          opText={character.filmConnection.films.map((e) => { return ( <ul>{e.openingCrawl}</ul>)})}
+          relace={character.filmConnection.films.map((e) => { return ( <ul>{e.releaseDate}</ul>)})}
         />
       );
     });

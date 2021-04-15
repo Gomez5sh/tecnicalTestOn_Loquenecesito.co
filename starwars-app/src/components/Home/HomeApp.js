@@ -1,7 +1,6 @@
 import React from "react";
 import { CharacterList } from "./CharacterList";
 import { Layout, Row } from "antd";
-import { AboutApp } from "../About/AboutApp";
 
 export const HomeApp = () => {
   const { Content } = Layout;

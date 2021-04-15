@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { Layout } from "antd";
 
 export const AboutApp = () => {
@@ -50,3 +50,4 @@ export const AboutApp = () => {
     </Layout>
   );
 };
+*/
