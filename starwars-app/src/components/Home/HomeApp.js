@@ -1,6 +1,6 @@
 import React from "react";
 import { CharacterList } from "./CharacterList";
-import { Layout } from "antd";
+import { Layout, Row } from "antd";
 import { AboutApp } from "../About/AboutApp";
 
 export const HomeApp = () => {
@@ -16,8 +16,9 @@ export const HomeApp = () => {
             minHeight: 280,
           }}
         >
-          <CharacterList name="character" />
-          <AboutApp />
+          <Row>
+            <CharacterList name="character" />
+          </Row>
         </Content>
       </Layout>
     </>
